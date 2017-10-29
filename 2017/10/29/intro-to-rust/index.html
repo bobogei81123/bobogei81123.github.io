@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Rust 簡介 | Orz..</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="最近花了不少時間在試 Rust 這個標榜有極佳的效率以及安全性的新語言。 這裡稍微做一些簡介。">
+<meta name="keywords" content="rust">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Rust 簡介">
+<meta property="og:url" content="http://yoursite.com/2017/10/29/intro-to-rust/index.html">
+<meta property="og:site_name" content="Orz..">
+<meta property="og:description" content="最近花了不少時間在試 Rust 這個標榜有極佳的效率以及安全性的新語言。 這裡稍微做一些簡介。">
+<meta property="og:updated_time" content="2017-10-29T07:37:44.775Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Rust 簡介">
+<meta name="twitter:description" content="最近花了不少時間在試 Rust 這個標榜有極佳的效率以及安全性的新語言。 這裡稍微做一些簡介。">
+  
+    <link rel="alternative" href="/atom.xml" title="Orz.." type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <section id="main"><article id="post-intro-to-rust" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Rust 簡介
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2017/10/29/intro-to-rust/" class="article-date">
+  <time datetime="2017-10-29T07:37:44.000Z" itemprop="datePublished">2017-10-29</time>
+</a>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css"><p>&#x6700;&#x8FD1;&#x82B1;&#x4E86;&#x4E0D;&#x5C11;&#x6642;&#x9593;&#x5728;&#x8A66; Rust &#x9019;&#x500B;&#x6A19;&#x699C;&#x6709;&#x6975;&#x4F73;&#x7684;&#x6548;&#x7387;&#x4EE5;&#x53CA;&#x5B89;&#x5168;&#x6027;&#x7684;&#x65B0;&#x8A9E;&#x8A00;&#x3002; &#x9019;&#x88E1;&#x7A0D;&#x5FAE;&#x505A;&#x4E00;&#x4E9B;&#x7C21;&#x4ECB;&#x3002;</p>
+<a id="more"></a>
+<h2 id="&#x57FA;&#x672C;">&#x57FA;&#x672C;</h2>
+<ul>
+<li>&#x975C;&#x614B;&#x7684;&#x7DE8;&#x8B6F;&#x8A9E;&#x8A00;&#xFF0C;&#x6709;&#x5C40;&#x90E8;&#x81EA;&#x52D5;&#x578B;&#x614B;&#x63A8;&#x5C0E;&#x3002;</li>
+<li>&#x8B8A;&#x6578;&#x5B9A;&#x7FA9;&#x7684;&#x8A9E;&#x6CD5;&#x70BA; <code>let var_name: type_name = value</code></li>
+<li><p>Control statement &#x7684;&#x8A9E;&#x6CD5;&#x8DDF;&#x8A31;&#x591A;&#x65B0;&#x7684;&#x8A9E;&#x8A00;&#x4E00;&#x6A23;&#xFF0C;Brace based &#x4E26;&#x4E14;&#x7701;&#x7565;&#x5713;&#x522E;&#x865F;&#x3002;<br>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> something {</div><div class="line">    ...</div><div class="line">} <span class="keyword">else</span> <span class="keyword">if</span> something {</div><div class="line">    ...</div><div class="line">}</div></pre></td></tr></table></figure></p></li>
+<li><p>&#x6240;&#x6709;&#x7684; statement &#x90FD;&#x662F; expression&#x3002;&#x6240;&#x4EE5;&#x4F60;&#x53EF;&#x4EE5;&#x5BEB; <code>let x = if y { 0 } else { 1 }</code>&#xFF0C;&#x751A;&#x81F3; <figure class="highlight rust"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> factor6 = {</div><div class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> t = <span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">1</span>..<span class="number">6</span> {</div><div class="line">        t *= i;</div><div class="line">    }</div><div class="line">    t</div><div class="line">}</div></pre></td></tr></table></figure></p></li>
+</ul>
+<p>&#x4E5F;&#x56E0;&#x6B64; function &#x7684;&#x56DE;&#x50B3;&#x503C;&#x5C31;&#x5BEB;&#x5728;&#x6700;&#x5F8C;&#x4E00;&#x884C;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#xFF0C;&#x4E0D;&#x9700;&#x8981; <code>return</code>&#x3002; <figure class="highlight rust"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fn</span> <span class="title">give_me_five</span></span>() -&gt; <span class="built_in">i64</span> {</div><div class="line">    <span class="number">5</span></div><div class="line">}</div></pre></td></tr></table></figure></p>
+<h2 id="borrow-checker">Borrow checker</h2>
+<p>C/C++ &#x6709;&#x4E0D;&#x5C11;&#x4F7F; programmer &#x5BB9;&#x6613;&#x72AF;&#x7684;&#x932F;&#x8AA4;&#xFF0C;&#x6BD4;&#x5982;&#x50CF;&#x662F;</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">calc</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &amp;v)</span> </span>{</div><div class="line">    <span class="keyword">int</span> t = v.back();</div><div class="line">    v.push_back(t);</div><div class="line">    t</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">int</span> &amp;x = vec[<span class="number">0</span>];</div><div class="line">...</div><div class="line">x = calc(vec);</div></pre></td></tr></table></figure>
+<p>&#x56E0;&#x70BA; <code>calc</code> &#x585E;&#x4E86;&#x4E00;&#x500B;&#x5143;&#x7D20;&#x9032; <code>v</code>&#xFF0C;&#x5F9E;&#x800C;&#x5C0E;&#x81F4; <code>v</code> &#x53EF;&#x80FD;&#x628A;&#x5E95;&#x4E0B;&#x7684;&#x5143;&#x7D20;&#x90FD;&#x642C;&#x5230;&#x65B0;&#x7684;&#x7A7A;&#x9593;&#x4E86;&#xFF0C; &#x9032;&#x800C;&#x4F7F; <code>x</code> &#x9019;&#x500B;&#x6307;&#x5411; <code>vec[0]</code> &#x7684; reference &#x5931;&#x6548;&#x3002; &#x751A;&#x81F3;&#x5728; C++17 &#x524D;&#x6C92;&#x6709;&#x898F;&#x5B9A;&#x7B49;&#x865F;&#x5DE6;&#x53F3; evaluate &#x7684;&#x9806;&#x5E8F;&#xFF0C;&#x9023; <code>vec[0] = calc(vec);</code> &#x90FD;&#x662F; undefined behavior&#x3002;</p>
+<p>&#x9019;&#x500B;&#x932F;&#x8AA4;&#x662F;&#x56E0;&#x70BA; <code>vec</code> &#x5DF2;&#x7D93;&#x300C;&#x501F;&#x7D66;&#x300D;<code>x</code> &#x4E86;&#xFF0C;&#x5C31;&#x4E0D;&#x8A72;&#x518D;&#x88AB;&#x501F;&#x53BB;&#x53E6;&#x4E00;&#x500B;&#x5730;&#x65B9;&#x6539;&#x503C;&#x4E86;&#x3002; Rust &#x5728;&#x7DE8;&#x8B6F;&#x7684;&#x6642;&#x5019;&#x7528; borrow checker &#x6AA2;&#x67E5;&#x4E86;&#x9019;&#x985E;&#x5F62;&#x7684;&#x932F;&#x8AA4;&#x3002;</p>
+<p>Rust &#x7684;&#x8B8A;&#x6578;&#x5171;&#x6709;&#x4E09;&#x7A2E;&#x5F62;&#x614B;&#xFF0C;&#x5206;&#x5225;&#x662F;</p>
+<ol style="list-style-type: decimal">
+<li>Owned:
+<ul>
+<li>&#x9019;&#x500B;&#x8CC7;&#x6E90;&#x662F;&#x88AB;&#x4F60;&#x6240;&#x64C1;&#x6709;&#x7684;&#x3002;</li>
+<li>&#x65E2;&#x7136;&#x662F;&#x4F60;&#x7684;&#xFF0C;&#x5728;&#x9084;&#x6C92;&#x6709;&#x501F;&#x7D66;&#x4EFB;&#x4F55;&#x4EBA;&#x524D;&#x4F60;&#x53EF;&#x4EE5;&#x4EFB;&#x610F;&#x4FEE;&#x6539;&#x3002;&#x4E26;&#x4E14;&#x7531;&#x4F60;&#x8CA0;&#x8CAC;&#x8CC7;&#x6E90;&#x7684; destruction&#x3002;</li>
+<li>&#x5C0D;&#x61C9;&#x5230;&#x7684;&#x662F;&#x4EE5; <code>mut var</code> &#x5BA3;&#x544A;&#x7684;&#x8B8A;&#x6578;&#x3002; <a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></li>
+</ul></li>
+<li>Shared reference:
+<ul>
+<li>&#x9019;&#x500B;&#x8CC7;&#x6E90;&#x662F;&#x5411;&#x5225;&#x4EBA;&#x501F;&#x4F86;&#x7684;&#xFF0C;&#x4E26;&#x4E14;&#x9019;&#x500B;&#x8CC7;&#x6E90;&#x9084;&#x53EF;&#x80FD;&#x5206;&#x4EAB;&#x7D66;&#x5176;&#x5B83;&#x4EBA;&#x4F7F;&#x7528;&#x3002;</li>
+<li>&#x56E0;&#x70BA;&#x5982;&#x6B64;&#xFF0C;&#x4F60;&#x4E0D;&#x80FD;&#x505A;&#x4EFB;&#x4F55;&#x4FEE;&#x6539;&#x6216;&#x5176;&#x4ED6;&#x53EF;&#x80FD;&#x6703;&#x5F71;&#x97FF;&#x4ED6;&#x4EBA;&#x7684;&#x4E8B;&#x60C5;&#x3002;</li>
+<li>&#x5C0D;&#x61C9;&#x5230; <code>&amp;var</code>&#x3002;</li>
+</ul></li>
+<li>Exclusive reference:
+<ul>
+<li>&#x9019;&#x500B;&#x8CC7;&#x6E90;&#x662F;&#x5411;&#x5225;&#x4EBA;&#x501F;&#x4F86;&#x7684;&#xFF0C;&#x4F46;&#x53EF;&#x4EE5;&#x78BA;&#x4FE1;&#x53EA;&#x501F;&#x7D66;&#x4F60;&#x800C;&#x5DF2;&#x3002;</li>
+<li>&#x4F60;&#x53EF;&#x4EE5;&#x5C0D;&#x9019;&#x500B;&#x8CC7;&#x6E90;&#x505A;&#x4EFB;&#x4F55;&#x4E8B;&#x60C5;&#x3002;</li>
+<li>&#x5C0D;&#x61C9;&#x5230; <code>&amp;mut var</code>&#x3002;</li>
+</ul></li>
+</ol>
+<p>&#x91CD;&#x9EDE;&#x662F;&#x4E00;&#x500B;&#x8B8A;&#x6578;</p>
+<ul>
+<li>&#x8981;&#x561B;&#x501F;&#x7D66;&#x81F3;&#x591A;&#x4E00;&#x500B; exclusive reference</li>
+<li>&#x8981;&#x561B;&#x501F;&#x7D66;&#x8A31;&#x591A; shared reference&#xFF0C;&#x4F46;&#x4E0D;&#x501F;&#x7D66;&#x4EFB;&#x4F55; exclusive reference</li>
+</ul>
+<p>&#x4EE5;&#x5148;&#x524D;&#x7684;&#x4F8B;&#x5B50;&#x4F86;&#x8AAA; <figure class="highlight rust"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fn</span> <span class="title">calc</span></span>(v: &amp;<span class="keyword">mut</span> <span class="built_in">Vec</span>&lt;<span class="built_in">i32</span>&gt;) -&gt; <span class="built_in">i32</span> {</div><div class="line">    <span class="keyword">let</span> t = *v.last().unwrap();</div><div class="line">    v.push(t);</div><div class="line">    <span class="keyword">return</span> t;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">let</span> x = vec.get_mut(<span class="number">0</span>).unwrap();</div><div class="line">*x = calc(&amp;<span class="keyword">mut</span> vec);</div></pre></td></tr></table></figure></p>
+<p>Rust &#x7DE8;&#x8B6F;&#x5668;&#x6703;&#x5831;&#x932F;&#xFF0C;&#x544A;&#x8A34;&#x4F60; <code>vec</code> &#x4E0D;&#x53EF;&#x4EE5;&#x88AB; mutable borrowed &#x5169;&#x6B21;&#x3002; <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">error[E0499]: cannot borrow `vec` as mutable more than once at a time</div><div class="line"></div><div class="line">   |     let x = vec.get_mut(0).unwrap();</div><div class="line">   |             --- first mutable borrow occurs here</div><div class="line">   |     *x = calc(&amp;mut vec);</div><div class="line">   |                    ^^^ second mutable borrow occurs here</div></pre></td></tr></table></figure></p>
+<p>&#x518D;&#x8209;&#x4E00;&#x500B;&#x4F8B;&#x5B50;&#xFF0C;&#x8907;&#x88FD; <code>Vec</code> &#x4E00;&#x904D;&#x653E;&#x5728;&#x5C3E;&#x7AEF;&#x5E38;&#x5E38;&#x6703;&#x5BEB;&#x51FA;&#x4EE5;&#x4E0B;&#x932F;&#x8AA4;&#x7684;&#x4EE3;&#x78BC;&#xFF1A; <figure class="highlight rust"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> x <span class="keyword">in</span> vec.iter() {</div><div class="line">    vec.push(*x);</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>Rust &#x4E5F;&#x80FD;&#x5920;&#x628A;&#x9019;&#x985E;&#x7684;&#x932F;&#x8AA4;&#x6293;&#x51FA;&#x4F86;&#x3002; <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">error[E0502]: cannot borrow `vec` as mutable because it is also borrowed as immutable</div><div class="line"></div><div class="line">  |     for x in vec.iter() {</div><div class="line">  |              --- immutable borrow occurs here</div><div class="line">  |         vec.push(*x);</div><div class="line">  |         ^^^ mutable borrow occurs here</div></pre></td></tr></table></figure></p>
+<h2 id="lifetime">Lifetime</h2>
+<p>&#x5728; <a href="https://github.com/rust-lang/rfcs/pull/2094" target="_blank" rel="external">Non-lexical lifetimes</a> &#x9084;&#x6C92;&#x6709;&#x88AB;&#x5BE6;&#x4F5C;&#x4EE5;&#x524D;&#xFF0C; Rust &#x7684; Owned variable &#x90FD;&#x6703;&#x5728; scope &#x7D50;&#x675F;&#x7684;&#x6642;&#x5019;&#x88AB;&#x91CB;&#x653E;&#xFF1A; <figure class="highlight rust"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> a = ...;</div><div class="line"><span class="keyword">let</span> b = ...;</div><div class="line"></div><div class="line"><span class="comment">// Equivalent to </span></div><div class="line"></div><div class="line">{</div><div class="line">    <span class="keyword">let</span> a = ...;    &#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2510;</div><div class="line">    {                        &#x2502;</div><div class="line">        <span class="keyword">let</span> b = ...;  &#x2500;&#x2500;&#x2500;&#x2510;   &#x2502;</div><div class="line">                &lt;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2518;   &#x2502;</div><div class="line">    }                        &#x2502;</div><div class="line">            &lt;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2518;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>&#x540C;&#x6A23;&#x7684;&#xFF0C;&#x4E00;&#x500B; reference &#x4E5F;&#x6703;&#x5728; scope &#x7D50;&#x675F;&#x5F8C;&#x5C07;&#x501F;&#x4F86;&#x7684;&#x9084;&#x56DE;&#x53BB;&#xFF1A;</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> a = <span class="number">1</span>;</div><div class="line">{</div><div class="line">    <span class="keyword">let</span> b = &amp;a; <span class="comment">// Borrow begin</span></div><div class="line">    ...</div><div class="line">    <span class="comment">// Borrow end</span></div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x8B8A;&#x6578;&#x548C; borrowing &#x6709;&#x6548;&#x7684;&#x6642;&#x9593;&#x5C31;&#x7A31;&#x4F5C;&#x4ED6;&#x7684; lifetime&#x3002;</p>
+<p>&#x800C;&#x7406;&#x6240;&#x7576;&#x7136;&#x7684;<strong>&#x4E00;&#x500B; reference &#x7684; lifetime &#x4E0D;&#x80FD;&#x8D85;&#x904E;&#x4ED6;&#x6307;&#x5411;&#x7684;&#x8B8A;&#x6578;&#x7684; lifetime&#x3002;</strong> <figure class="highlight rust"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> x;</div><div class="line">{</div><div class="line">    <span class="keyword">let</span> y = <span class="number">1</span>;</div><div class="line">    x = &amp;y; <span class="comment">// error[E0597]: `y` does not live long enough</span></div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>&#x70BA;&#x4E86;&#x8A9E;&#x8A00;&#x89E3;&#x6790;&#x4E0A;&#x7684;&#x65B9;&#x4FBF;&#xFF0C;Rust &#x4E0D;&#x652F;&#x63F4;&#x51FD;&#x5F0F;&#x56DE;&#x50B3;&#x578B;&#x5225;&#x7684;&#x63A8;&#x5C0E;&#xFF0C;&#x4E5F;&#x56E0;&#x6B64;&#x5982;&#x679C;&#x56DE;&#x50B3;&#x7684;&#x503C;&#x662F;&#x4E00;&#x500B; reference&#xFF0C;&#x5FC5;&#x9808;&#x624B;&#x52D5;&#x6A19;&#x793A;&#x51FA;&#x4ED6;&#x7684; lifetime&#x3002;&#x8A9E;&#x6CD5;&#x70BA; <code>&apos;a</code>, <code>&apos;b</code> &#x2026;</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">fn</span> <span class="title">longest</span></span>&lt;<span class="symbol">&apos;a</span>&gt;(x: &amp;<span class="symbol">&apos;a</span> <span class="built_in">str</span>, y: &amp;<span class="symbol">&apos;a</span> <span class="built_in">str</span>) -&gt; &amp;<span class="symbol">&apos;a</span> <span class="built_in">str</span> {</div><div class="line">    <span class="keyword">if</span> x.len() &gt; y.len() { x } <span class="keyword">else</span> { y }</div><div class="line">}</div></pre></td></tr></table></figure>
+<p>&#x9019;&#x500B;&#x5728;&#x4E00;&#x958B;&#x59CB;&#x5B78; rust &#x548C;&#x6C92;&#x6709;&#x597D;&#x7684;&#x4E0A;&#x8272;&#x5957;&#x4EF6;&#x6642;&#x6703;&#x770B;&#x7684;&#x773C;&#x775B;&#x5F88;&#x75DB;&#x2026;</p>
+<h2 id="move-by-default">Move by default</h2>
+<p>C++ &#x4E2D; <code>std::string</code> &#x7684;&#x52A0;&#x6CD5;&#x51FD;&#x5F0F;&#x7684; signature &#x70BA; <code>string operator+ (const string&amp;, const string&amp;)</code>&#x3002; &#x4F46;&#x9019;&#x6A23;&#x7684;&#x4E00;&#x500B;&#x554F;&#x984C;&#x662F;&#x6BCF;&#x4E00;&#x6B21;&#x57F7;&#x884C;&#x5B8C; <code>operator+</code>&#xFF0C;&#x5FC5;&#x9808;&#x628A;&#x56DE;&#x50B3;&#x503C;&#x8907;&#x88FD;&#x4E00;&#x4EFD;&#x56DE;&#x53BB;&#xFF08;&#x5982;&#x679C;&#x7DE8;&#x8B6F;&#x5668;&#x6C92;&#x6709;&#x512A;&#x5316;&#x7684;&#x8A71;&#xFF09;&#xFF0C;&#x9020;&#x6210;&#x5982; <code>a_1 + a_2 + ... + a_n</code> &#x7684;&#x8907;&#x96DC;&#x5EA6;&#x53EF;&#x80FD;&#x662F; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mrow><mi mathvariant="script">O</mi></mrow><mo>(</mo><msup><mi>n</mi><mn>2</mn></msup><mo>)</mo></mrow><annotation encoding="application/x-tex">\mathcal{O}(n^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathcal" style="margin-right:0.02778em;">O</span></span><span class="mopen">(</span><span class="mord"><span class="mord mathit">n</span><span class="msupsub"><span class="vlist"><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose">)</span></span></span></span> &#x7684;&#x3002;</p>
+<p>Rust &#x4E00;&#x500B;&#x975E;&#x5E38;&#x7279;&#x6B8A;&#x7684;&#x5730;&#x65B9;&#x5728;&#x65BC;&#x4ED6;&#x662F; move by default &#x7684;&#xFF08;&#x6709;&#x5225;&#x65BC;&#x5927;&#x591A;&#x6578; copy by default &#x7684;&#x8A9E;&#x8A00;&#xFF09;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8AAA; <code>x = y</code> &#x53EA;&#x6703;&#x5C07; <code>y</code> &#x5728; stack &#x4E0A;&#x7684;&#x8CC7;&#x6599;&#x79FB;&#x53BB;&#x7D66; <code>x</code>&#xFF0C;&#x800C;&#x4E0D;&#x6703;&#x53BB;&#x8907;&#x88FD;&#x6DF1;&#x5C64;&#x7684;&#x8CC7;&#x6599;&#x4EE5;&#x7BC0;&#x7701;&#x6642;&#x9593;&#x3002;&#x7C21;&#x800C;&#x8A00;&#x4E4B;&#x5C31;&#x662F;&#x628A; ownership &#x8F49;&#x79FB;&#x7D66;&#x4E86; <code>x</code>&#xFF0C;&#x4E5F;&#x56E0;&#x6B64;&#x4E4B;&#x5F8C;&#x5C31;&#x6C92;&#x6709;&#x8FA6;&#x6CD5;&#x5728;&#x53BB;&#x4F7F;&#x7528; <code>y</code> &#x4E86;&#x3002;</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> <span class="keyword">mut</span> x = <span class="built_in">vec!</span>[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</div><div class="line"><span class="keyword">let</span> <span class="keyword">mut</span> y = x;</div><div class="line">x.push(<span class="number">4</span>); <span class="comment">// error[E0382]: use of moved value: `x`</span></div></pre></td></tr></table></figure>
+<div class="footnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Rust &#x4E5F;&#x6709; Immutable owned &#x7684;&#x8B8A;&#x6578;&#xFF0C;&#x4F46;&#x5728;&#x672C;&#x8CEA;&#x4E0A;&#x4F86;&#x8AAA;&#x548C; Mutable owned &#x6C92;&#x6709;&#x5DEE;&#x5225;&#xFF0C;&#x53EA;&#x662F;&#x7DE8;&#x8B6F;&#x5668;&#x6703;&#x5E6B;&#x4F60;&#x6AA2;&#x67E5;&#x6709;&#x6C92;&#x6709;&#x88AB;&#x4FEE;&#x6539;&#x800C;&#x5DF2;&#x3002;&#x6C92;&#x6709;&#x4EFB;&#x4F55;&#x4EBA;&#x80FD;&#x963B;&#x6B62;&#x4F60;&#x9019;&#x9EBC;&#x505A;&#xFF1A; <figure class="highlight rust"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> x = <span class="number">3</span>;</div><div class="line"><span class="keyword">let</span> <span class="keyword">mut</span> x = x;</div></pre></td></tr></table></figure></p>
+<p>&#x4E5F;&#x5C31;&#x662F;&#x8AAA;&#xFF0C;&#x628A;&#x6240;&#x6709; <code>let var = ...</code> &#x63DB;&#x6210; <code>let mut var = ...</code> &#x4E0D;&#x6703;&#x9020;&#x6210;&#x4EFB;&#x4F55;&#x7DE8;&#x8B6F;&#x932F;&#x8AA4;&#x3002;<a href="#fnref1">&#x21A9;</a></p></li>
+</ol>
+</div>
+
+      
+
+      
+        
+    </div>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/08/14/JS-tips-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JS tips #1</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        <aside id="sidebar">
+  <nav class="menus">
+  	<ul>
+  		<li><a href="/"><i class="icon icon-home"></i></a></li>
+  		
+			<li><a href="/archives"><i class="icon icon-fenlei"></i></a></li>
+  		
+  		
+			<li><a href="/tags"><i class="icon icon-tag"></i></a></li>
+  		
+  		
+  			<li><a href="https://github.com/bobogei81123" target="_blank"><i class="icon icon-github"></i></a></li>
+  		
+  	</ul>
+  </nav>
+  <a id="go-top" href="#"><i class="icon icon-up"></i></a>
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+	<div id="footer-info" class="inner">
+	  &copy; 2017 Meteor 
+	  - Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+	  - Theme <a href="https://github.com/hejianxian/hexo-theme-jane/" target="_blank">Jane</a>
+	</div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tag</a>
+  
+    <a href="https://github.com/bobogei81123" class="mobile-nav-link">Github</a>
+  
+</nav>
+    
+
+<script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

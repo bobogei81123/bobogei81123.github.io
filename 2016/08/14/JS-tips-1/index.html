@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JS tips #1 | Orz..</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Function.length 有一天在看 Vue.js 的 tutorial 發現了一個很不得了的事情, 裡面有一個 function 會吃一個使用者自訂的 callback function. 神奇的事情是他會根據傳進來 function 的 signature 判斷來做不同的處理! 有點像 12345const f = (fun) =&amp;gt; &amp;#123; ... &amp;#125;f(() =&amp;">
+<meta name="keywords" content="JS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS tips #1">
+<meta property="og:url" content="http://yoursite.com/2016/08/14/JS-tips-1/index.html">
+<meta property="og:site_name" content="Orz..">
+<meta property="og:description" content="Function.length 有一天在看 Vue.js 的 tutorial 發現了一個很不得了的事情, 裡面有一個 function 會吃一個使用者自訂的 callback function. 神奇的事情是他會根據傳進來 function 的 signature 判斷來做不同的處理! 有點像 12345const f = (fun) =&amp;gt; &amp;#123; ... &amp;#125;f(() =&amp;">
+<meta property="og:updated_time" content="2017-10-28T15:20:40.081Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS tips #1">
+<meta name="twitter:description" content="Function.length 有一天在看 Vue.js 的 tutorial 發現了一個很不得了的事情, 裡面有一個 function 會吃一個使用者自訂的 callback function. 神奇的事情是他會根據傳進來 function 的 signature 判斷來做不同的處理! 有點像 12345const f = (fun) =&amp;gt; &amp;#123; ... &amp;#125;f(() =&amp;">
+  
+    <link rel="alternative" href="/atom.xml" title="Orz.." type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <section id="main"><article id="post-JS-tips-1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JS tips #1
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2016/08/14/JS-tips-1/" class="article-date">
+  <time datetime="2016-08-14T11:51:43.000Z" itemprop="datePublished">2016-08-14</time>
+</a>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="function.length"><code>Function.length</code></h2>
+<p>&#x6709;&#x4E00;&#x5929;&#x5728;&#x770B; Vue.js &#x7684; <a href="https://vuejs.org/guide/transitions.html#Transition-Flow-Details" target="_blank" rel="external">tutorial</a> &#x767C;&#x73FE;&#x4E86;&#x4E00;&#x500B;&#x5F88;&#x4E0D;&#x5F97;&#x4E86;&#x7684;&#x4E8B;&#x60C5;, &#x88E1;&#x9762;&#x6709;&#x4E00;&#x500B; function &#x6703;&#x5403;&#x4E00;&#x500B;&#x4F7F;&#x7528;&#x8005;&#x81EA;&#x8A02;&#x7684; callback function. &#x795E;&#x5947;&#x7684;&#x4E8B;&#x60C5;&#x662F;&#x4ED6;&#x6703;&#x6839;&#x64DA;&#x50B3;&#x9032;&#x4F86; function &#x7684; signature &#x5224;&#x65B7;&#x4F86;&#x505A;&#x4E0D;&#x540C;&#x7684;&#x8655;&#x7406;!<br>
+&#x6709;&#x9EDE;&#x50CF; <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> f = <span class="function">(<span class="params">fun</span>) =&gt;</span> { ... }</div><div class="line">f(<span class="function"><span class="params">()</span> =&gt;</span> {})</div><div class="line"><span class="comment">// output &quot;function with no arguments&quot;</span></div><div class="line">f(<span class="function">(<span class="params">a</span>) =&gt;</span> {})</div><div class="line"><span class="comment">// output &quot;function with one arguments&quot;</span></div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>&#x67E5;&#x4E86;&#x4E00;&#x4E0B;&#x624D;&#x767C;&#x73FE; ES &#x7684; function &#x6709;&#x500B; <code>Function.length</code> &#x7684;&#x5C6C;&#x6027;, &#x6703;&#x56DE;&#x50B3;&#x6709;&#x5E7E;&#x500B;&#x5FC5;&#x8981;&#x5F15;&#x6578;. <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> f0 = <span class="function"><span class="params">()</span> =&gt;</span> {},            <span class="comment">// f0.length = 0</span></div><div class="line">      f1 = <span class="function">(<span class="params">a</span>) =&gt;</span> {},           <span class="comment">// f1.length = 1</span></div><div class="line">      f2 = <span class="function">(<span class="params">a, b</span>) =&gt;</span> {},        <span class="comment">// f2.length = 2</span></div><div class="line">      g  = <span class="function">(<span class="params">...args</span>) =&gt;</span> {},     <span class="comment">//  g.length = 0</span></div><div class="line">      h  = <span class="function">(<span class="params">a, b=<span class="number">0</span>, c</span>) =&gt;</span> {};   <span class="comment">//  h.length = 1, &#x53EA;&#x7B97;&#x6709; default value &#x4E4B;&#x524D;&#x7684;</span></div></pre></td></tr></table></figure></p>
+<h2 id="array.prototype.sort"><code>Array.prototype.sort()</code></h2>
+<p>ES &#x5167;&#x5EFA;&#x7684; <code>sort</code> &#x975E;&#x5E38;&#x96F7;, <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">10</span>, <span class="number">11</span>].sort() <span class="comment">// [1, 10, 11, 2, 3]</span></div></pre></td></tr></table></figure></p>
+<p>&#x4ED6;&#x6703;&#x5168;&#x90E8;&#x8F49;&#x6210;&#x5B57;&#x4E32; (<code>.toString()</code>) &#x4E4B;&#x5F8C;&#x4F86;&#x6392;&#x5E8F;. &#x5982;&#x679C;&#x5E0C;&#x671B;&#x7167;&#x8457;<strong>&#x6B63;&#x5E38;</strong>&#x7684;&#x65B9;&#x6CD5;&#x6392;&#x5E8F;, &#x7528; <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">10</span>, <span class="number">11</span>].sort(<span class="function">(<span class="params">x, y</span>) =&gt;</span> x-y);</div></pre></td></tr></table></figure></p>
+<p>&#x4E5F;&#x5C31;&#x662F;&#x8AAA; <code>sort</code> &#x53EF;&#x4EE5;&#x984D;&#x5916;&#x50B3;&#x4E00;&#x500B; compare function, &#x5C0F;&#x65BC;&#x3001;&#x7B49;&#x65BC;&#x548C;&#x5927;&#x65BC;&#x5206;&#x5225;&#x56DE;&#x50B3;&#x8CA0;&#x6578;&#x3001;0 &#x548C;&#x6B63;&#x6578;.</p>
+<h2 id="method-definitions-shorthand">Method definitions shorthand</h2>
+<p>ES6 &#x4E2D;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x500B;&#x7E2E;&#x5BEB; <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> obj = {</div><div class="line">    foo: <span class="string">&apos;bar&apos;</span>,</div><div class="line">    fun() { <span class="built_in">console</span>.log(<span class="keyword">this</span>) },</div><div class="line">};</div><div class="line"><span class="comment">// same as</span></div><div class="line"><span class="keyword">let</span> obj = {</div><div class="line">    foo: <span class="string">&apos;bar&apos;</span>,</div><div class="line">    fun: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{ <span class="built_in">console</span>.log(<span class="keyword">this</span>) },</div><div class="line">};</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+        
+    </div>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/10/29/intro-to-rust/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Rust 簡介
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/07/20/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World to Hexo</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        <aside id="sidebar">
+  <nav class="menus">
+  	<ul>
+  		<li><a href="/"><i class="icon icon-home"></i></a></li>
+  		
+			<li><a href="/archives"><i class="icon icon-fenlei"></i></a></li>
+  		
+  		
+			<li><a href="/tags"><i class="icon icon-tag"></i></a></li>
+  		
+  		
+  			<li><a href="https://github.com/bobogei81123" target="_blank"><i class="icon icon-github"></i></a></li>
+  		
+  	</ul>
+  </nav>
+  <a id="go-top" href="#"><i class="icon icon-up"></i></a>
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+	<div id="footer-info" class="inner">
+	  &copy; 2017 Meteor 
+	  - Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+	  - Theme <a href="https://github.com/hejianxian/hexo-theme-jane/" target="_blank">Jane</a>
+	</div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tag</a>
+  
+    <a href="https://github.com/bobogei81123" class="mobile-nav-link">Github</a>
+  
+</nav>
+    
+
+<script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

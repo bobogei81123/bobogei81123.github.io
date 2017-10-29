@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hello World to Hexo | Orz..</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Hexo 是在 StaticGen 上排名第三的 static site generator. 可以幫你快速的建出 blog 等等的靜態網站. 設定方式 以下是在 hexo 3.2.2 和 arch linux 4.6.4 下的設定說明.">
+<meta name="keywords" content="hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hello World to Hexo">
+<meta property="og:url" content="http://yoursite.com/2016/07/20/hello-world/index.html">
+<meta property="og:site_name" content="Orz..">
+<meta property="og:description" content="Hexo 是在 StaticGen 上排名第三的 static site generator. 可以幫你快速的建出 blog 等等的靜態網站. 設定方式 以下是在 hexo 3.2.2 和 arch linux 4.6.4 下的設定說明.">
+<meta property="og:updated_time" content="2017-10-28T15:20:40.081Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hello World to Hexo">
+<meta name="twitter:description" content="Hexo 是在 StaticGen 上排名第三的 static site generator. 可以幫你快速的建出 blog 等等的靜態網站. 設定方式 以下是在 hexo 3.2.2 和 arch linux 4.6.4 下的設定說明.">
+  
+    <link rel="alternative" href="/atom.xml" title="Orz.." type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div class="outer">
+        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Hello World to Hexo
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2016/07/20/hello-world/" class="article-date">
+  <time datetime="2016-07-20T11:51:43.000Z" itemprop="datePublished">2016-07-20</time>
+</a>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://hexo.io/" target="_blank" rel="external">Hexo</a> &#x662F;&#x5728; <a href="https://www.staticgen.com/" target="_blank" rel="external">StaticGen</a> &#x4E0A;&#x6392;&#x540D;&#x7B2C;&#x4E09;&#x7684; static site generator. &#x53EF;&#x4EE5;&#x5E6B;&#x4F60;&#x5FEB;&#x901F;&#x7684;&#x5EFA;&#x51FA; blog &#x7B49;&#x7B49;&#x7684;&#x975C;&#x614B;&#x7DB2;&#x7AD9;.</p>
+<h2 id="&#x8A2D;&#x5B9A;&#x65B9;&#x5F0F;">&#x8A2D;&#x5B9A;&#x65B9;&#x5F0F;</h2>
+<p>&#x4EE5;&#x4E0B;&#x662F;&#x5728; hexo 3.2.2 &#x548C; arch linux 4.6.4 &#x4E0B;&#x7684;&#x8A2D;&#x5B9A;&#x8AAA;&#x660E;.</p>
+<a id="more"></a>
+<p>&#x9996;&#x5148;&#x7528; <code>npm</code> &#x5728; global &#x5B89;&#x88DD; <code>hexo</code>. <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo</div></pre></td></tr></table></figure></p>
+<p>&#x63A5;&#x8457;&#x5728;&#x4F60;&#x60F3;&#x8981;&#x7684;&#x5730;&#x65B9;&#x958B;&#x4E00;&#x500B;&#x65B0;&#x7684;&#x8CC7;&#x6599;&#x593E;&#x5B58;&#x653E; blog &#x7684;&#x6A94;&#x6848;. &#x7136;&#x5F8C;&#x521D;&#x59CB;&#x5316; hexo. <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir [your directory]</div><div class="line"><span class="built_in">cd</span> <span class="variable">$_</span></div><div class="line">hexo init</div></pre></td></tr></table></figure></p>
+<p>&#x6700;&#x5F8C;&#x5728; <code>./config.yml</code> &#x88E1;&#x9762;&#x66F4;&#x6539;&#x8A2D;&#x5B9A;, &#x627E;&#x51FA; Deployment &#x4E00;&#x5340;&#x7684;&#x9078;&#x9805;, &#x9019;&#x88E1;&#x5047;&#x8A2D;&#x4F60;&#x8981;&#x7528; Github &#x7576;&#x505A; deploy &#x7684;&#x4F4D;&#x7F6E;.<br>
+<code>[your username]</code> &#x586B;&#x5165;&#x4F60;&#x7684; github &#x5E33;&#x865F;. <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># Deployment</div><div class="line">## Docs: https://hexo.io/docs/deployment.html</div><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: https://github.com/[your username]/[your username].github.io</div></pre></td></tr></table></figure></p>
+<p>&#x6700;&#x5F8C; generate &#x548C; deploy &#x5C31;&#x6703;&#x5728; <code>[your username].github.io</code> &#x4E0A;&#x770B;&#x5230;&#x4F60;&#x7684;&#x7DB2;&#x9801;&#x4E86;! <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo generate</div><div class="line">hexo deploy</div></pre></td></tr></table></figure></p>
+
+      
+
+      
+        
+    </div>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/08/14/JS-tips-1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JS tips #1
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        <aside id="sidebar">
+  <nav class="menus">
+  	<ul>
+  		<li><a href="/"><i class="icon icon-home"></i></a></li>
+  		
+			<li><a href="/archives"><i class="icon icon-fenlei"></i></a></li>
+  		
+  		
+			<li><a href="/tags"><i class="icon icon-tag"></i></a></li>
+  		
+  		
+  			<li><a href="https://github.com/bobogei81123" target="_blank"><i class="icon icon-github"></i></a></li>
+  		
+  	</ul>
+  </nav>
+  <a id="go-top" href="#"><i class="icon icon-up"></i></a>
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+	<div id="footer-info" class="inner">
+	  &copy; 2017 Meteor 
+	  - Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+	  - Theme <a href="https://github.com/hejianxian/hexo-theme-jane/" target="_blank">Jane</a>
+	</div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tag</a>
+  
+    <a href="https://github.com/bobogei81123" class="mobile-nav-link">Github</a>
+  
+</nav>
+    
+
+<script src="//cdn.bootcss.com/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
